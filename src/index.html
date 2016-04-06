@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .abc {width: 200px;height:100px;background: #00f}
+    </style>
+</head>
+<body>
+    <script type="text/javascript" src="element.js"></script>
+    <script type="text/javascript">
+       var Ul = R.createClass({
+           getInitialState : function () {
+               this.state = {
+                   name : '1'
+               }
+           },
+           _stateChange : function () {
+                this.setState({
+                    name:2
+                })
+               console.log(this.state)
+           },
+            render:function () {
+                return (
+                    R.createElement('ul',{class:'abc', name:this.state.name, onclick: this._stateChange},[
+                        R.createElement('li', {class:'li'}, [
+                            R.createElement('a',{href:'www.baidu.com'}),
+                            R.createElement('a',{href:'www.baidu.com'}),
+                        ]),
+                        R.createElement('li', {class:'li'},[
+                            R.createElement('a',{href:'www.baidu.com'}),
+                            R.createElement('a',{href:'www.baidu.com'}),
+                        ])
+                    ])
+                )
+
+                //var ulStr = ul.render();
+            }
+        });
+       //console.log(Ul)
+       R.render(Ul, document.getElementsByTagName('body')[0]);
+    </script>
+</body>
+</html>
